@@ -1,0 +1,363 @@
+/* Design tokens */
+:root {
+  --nav-color: hsl(0, 0%, 100%);
+  --body-color: hsl(0, 0%, 100%);
+  --font-color: hsl(180, 7%, 16%);
+  --secondary-font-color: hsl(180, 4%, 40%);
+  --menu-color: hsl(180, 10%, 98%);
+  --accent-color: hsl(164, 70%, 38%);
+  --footer-color: hsl(180, 7%, 16%);
+  --divider-color: hsl(180, 6%, 90%);
+  --footer-title-color: hsl(180, 6%, 90%);
+  --font-primary: "Stack Sans Headline", sans-serif;
+}
+[data-theme="dark"] {
+  --nav-color: hsl(180, 8%, 15%);
+  --body-color: hsl(180, 8%, 11%);
+  --font-color: hsl(180, 10%, 96%);
+  --secondary-font-color: hsl(180, 5%, 70%);
+  --menu-color: hsl(180, 8%, 16%);
+  --divider-color: hsl(180, 6%, 22%);
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 250,
+    "GRAD" -50,
+    "opsz" 20;
+
+  color: var(--font-color);
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scrollbar-gutter: stable;
+}
+
+/* header */
+header {
+  z-index: 10;
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: var(--nav-color);
+  justify-content: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.theme-switch-btn,
+.hamburger-menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.material-symbols-rounded.theme-switch,
+.material-symbols-rounded.menu-btn {
+  font-size: 2.5rem;
+}
+.theme-switch-btn,
+.hamburger-menu-btn {
+  border-radius: 50px;
+  transition-duration: 0.2s;
+}
+
+.theme-switch-btn:hover,
+.theme-switch-btn:focus-visible,
+.hamburger-menu-btn:hover,
+.hamburger-menu-btn:focus-visible {
+  background-color: var(--accent-color);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  width: 95%;
+}
+
+.logo {
+  cursor: pointer;
+  margin: 10px;
+  max-height: 80px;
+  max-width: 400px;
+  width: 70%;
+}
+
+.toast-copy {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  font-family: var(--font-primary);
+  color: white;
+
+  opacity: 0;
+  transform: translateX(30px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.toast-copy.shown {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.material-symbols-rounded.toast-check,
+.material-symbols-rounded.toast-close {
+  color: white;
+  user-select: none;
+}
+
+.toast-close-btn {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.toast-copy-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav {
+  display: none;
+}
+
+/* body */
+body {
+  transition-duration: 0.2s;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--body-color);
+}
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* hamburger menu */
+
+.hamburger-menu {
+  position: fixed;
+  left: -500px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  background-color: var(--menu-color);
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  height: 100%;
+  transition-duration: 0.2s;
+}
+.hamburger-menu a {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 40px;
+  height: 60px;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--font-color);
+  justify-content: space-between;
+  transition-duration: 0.2s;
+}
+
+.hamburger-menu img {
+  height: inherit;
+}
+
+.hamburger-menu a:hover,
+.hamburger-menu a:focus-visible {
+  padding-left: 30px;
+  padding-right: 15px;
+  background-color: var(--accent-color);
+}
+
+.hamburger-menu.active {
+  left: 0;
+}
+
+/* main */
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* footer */
+footer {
+  color: var(--secondary-font-color);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--footer-color);
+}
+
+footer .material-symbols-rounded {
+  color: var(--accent-color);
+  font-size: 1.6rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1600px;
+  width: 95%;
+  font-family: var(--font-primary);
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-font-color);
+  text-decoration: none;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+footer .title {
+  color: var(--footer-title-color);
+  font-weight: 300;
+  font-size: 2.2rem;
+}
+
+footer .logo {
+  margin: 0px;
+  width: auto;
+}
+.footer-main {
+  width: 100%;
+}
+.footer-col {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-credits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to drop down when space runs out */
+  gap: 0.2rem; /* Adds spacing between items when side-by-side or stacked */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.material-symbols-rounded.copy {
+  color: white;
+  margin-left: 8px;
+  transition-duration: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.material-symbols-rounded.copy:hover {
+  background-color: hsl(180, 7%, 30%);
+}
+
+.material-symbols-rounded.copy:active {
+  background-color: hsl(180, 7%, 40%);
+}
+
+.footer-credits a,
+.footer-credits small {
+  font-size: 1rem;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--divider-color);
+}
+
+/* media */
+@media screen and (min-width: 1300px) {
+  nav {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .hamburger-menu,
+  .hamburger-menu-btn {
+    display: none;
+  }
+
+  nav a {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-decoration: none var(--accent-color);
+    color: var(--font-color);
+    transition-duration: 0.2s;
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    transform: translateY(-2px);
+    text-decoration: underline 3px var(--accent-color);
+    cursor: pointer;
+  }
+
+  .footer-col {
+    width: auto;
+    display: flex;
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+  }
+}

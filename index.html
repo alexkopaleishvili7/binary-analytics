@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Analytics</title>
+
+    <!-- Connection hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@300;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div role="status" aria-live="polite" class="toast-copy">
+      <div class="toast-copy-inner">
+        <span class="material-symbols-rounded toast-check" >check_circle</span>
+        <p>Copied to clipboard</p> 
+      </div>
+      <button class="toast-close-btn">
+        <span class="material-symbols-rounded toast-close" >close</span>
+      </button>
+    </div>
+    <header>
+      <div class="header-inner">
+        <button class="hamburger-menu-btn" aria-label="Toggle navigation menu">
+          <span class="material-symbols-rounded menu-btn" >menu</span>
+        </button>
+        <img class="logo" src="assets/images/icons/logo_dark.svg" alt="Binary Analytics" />
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Services</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Templates</a>
+          <a href="#">Support</a>
+          <a href="#">About us</a>
+        </nav>
+        <button class="theme-switch-btn" aria-label="Change theme">
+          <span class="material-symbols-rounded theme-switch" >dark_mode</span>
+        </button>
+      </div>
+    </header>
+    <nav class="hamburger-menu">
+      <a href="#" >Home</a>
+      <a href="#" >Services</a>
+      <a href="#" >Portfolio</a>
+      <a href="#" >Templates</a>
+      <a href="#" >Support</a>
+      <a href="#" >About us</a>
+    </nav>
+    <main>
+      
+    </main>
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <img class="logo" src="assets/images/icons/logo_light.svg" alt="Binary Analytics" />
+            <p>Ensure your business is managed and in good hands</p>
+          </div>
+          <div class="footer-col legal">
+            <h1 class="title">Legal</h1>
+            <a href="#">Terms and conditions</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <div class="footer-col social">
+            <h1 class="title">Social</h1>
+            <a href="#">Instagram</a>
+            <a href="#">Youtube</a>
+            <a href="#">Twitter</a>
+            <a href="#">Linked In</a>
+          </div>
+          <div class="footer-col services">
+            <h1 class="title">Services</h1>
+            <a href="#">Financial managment</a>
+            <a href="#">Technical maintenance</a>
+          </div>
+          <div class="footer-col contact">
+            <h1 class="title">Contact</h1>
+            <div class="contact-item">
+              <span class="material-symbols-rounded">call</span>
+              <p>+995-577-66-33-55</p>
+              <span class="material-symbols-rounded copy" id="phone-copy-btn">content_copy</span>
+            </div>
+            <div class="contact-item">
+              <span class="material-symbols-rounded">mail</span>
+              <p>binaryanalytics@gmail.com</p>
+              <span class="material-symbols-rounded copy" id="email-copy-btn">content_copy</span>
+            </div>
+            <div class="contact-item">
+              <span class="material-symbols-rounded">location_on</span>
+              <p>Georgia, Tbilisi, N7</p>
+              <span class="material-symbols-rounded copy" id="location-copy-btn">content_copy</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <hr class="divider"></hr>
+          <div class="footer-credits">
+            <small class="copyright">&copy; <span id="copyright-year"></span> Binary Analytics. All rights reserved</small>
+            <a href="#">Back to the top<span class="material-symbols-rounded">arrow_upward</span></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
