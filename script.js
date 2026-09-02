@@ -102,3 +102,10 @@ themeSwitchBtn.addEventListener("click", () => {
     document.querySelector(".logo").src = "assets/images/icons/logo_light.svg";
   }
 });
+
+
+window.addEventListener("load", async () => {
+    await document.fonts.ready;
+
+    document.querySelector(".loader-overlay").remove();
+});
