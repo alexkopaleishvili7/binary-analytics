@@ -106,6 +106,5 @@ themeSwitchBtn.addEventListener("click", () => {
 
 window.addEventListener("load", async () => {
     await document.fonts.ready;
-
     document.querySelector(".loader-overlay").remove();
 });
