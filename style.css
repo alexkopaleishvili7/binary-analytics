@@ -62,9 +62,10 @@ html {
   }
 }
 .loader-overlay {
+  width: 100%;
+  height: 100%;
   z-index: var(--z-loader);
-  position: fixed;
-  inset: 0;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
