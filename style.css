@@ -10,8 +10,8 @@
   --divider-color: hsl(180, 6%, 90%);
   --footer-title-color: hsl(180, 6%, 90%);
   --font-primary: "Stack Sans Headline", sans-serif;
-  --z-header: 10;
-  --z-menu: 20;
+  --z-menu: 10;
+  --z-header: 20;
   --z-toast: 30;
   --z-loader: 40;
 }

@@ -8,17 +8,21 @@ const menuBtnIcon = document.querySelector(
 
 // Preferences & Actions
 const themeSwitchBtn = document.querySelector(".theme-switch-btn");
+const themeSwitchIcon = document.querySelector(".theme-switch-btn span");
+const siteLogo = document.querySelector(".logo");
+
+let isDarkMode = false;
 
 // Copy Triggers
 const phoneCopyBtn = document.getElementById("phone-copy-btn");
 const emailCopyBtn = document.getElementById("email-copy-btn");
 const locationCopyBtn = document.getElementById("location-copy-btn");
 
-
-
 // Toast Triggers
 const copyToastMsg = document.querySelector(".toast-copy");
 const copyToastCloseBtn = document.querySelector(".toast-close-btn");
+
+const documentBody = document.body;
 
 let hideTimeout;
 
@@ -58,7 +62,7 @@ document.addEventListener("click", (event) => {
   const clickedOutsideBtn = !hamburgerMenuBtn.contains(event.target);
   if (clickedOutsideMenu && clickedOutsideBtn) {
     hamburgerMenu.classList.remove("active");
-    document.querySelector("body").classList.remove("menu-open");
+    documentBody.classList.remove("menu-open");
   }
   checkMenuIsOpen();
 });
@@ -66,7 +70,7 @@ document.addEventListener("click", (event) => {
 menuLinks.forEach((button) => {
   const icon = document.createElement("span");
   icon.classList.add("material-symbols-rounded");
-  icon.innerHTML = "chevron_right";
+  icon.textContent = "chevron_right";
   icon.style.display = "none";
   button.appendChild(icon);
 
@@ -80,40 +84,37 @@ menuLinks.forEach((button) => {
 
   button.addEventListener("click", () => {
     hamburgerMenu.classList.remove("active");
-    document.querySelector("body").classList.remove("menu-open");
+    documentBody.classList.remove("menu-open");
   });
 });
 
-let checkMenuIsOpen = function () {
+function checkMenuIsOpen() {
   const isMenuOpen = hamburgerMenu.classList.contains("active");
 
   if (isMenuOpen) {
-    menuBtnIcon.innerHTML = "close";
+    menuBtnIcon.textContent = "close";
   } else {
-    menuBtnIcon.innerHTML = "menu";
+    menuBtnIcon.textContent = "menu";
   }
-};
+}
 
 hamburgerMenuBtn.addEventListener("click", () => {
   hamburgerMenu.classList.toggle("active");
-  document.querySelector("body").classList.toggle("menu-open");
+  documentBody.classList.toggle("menu-open");
   checkMenuIsOpen();
 });
 
 themeSwitchBtn.addEventListener("click", () => {
-  if (isDarkMode == null) {
-    isDarkMode = true;
-  }
   if (isDarkMode) {
     isDarkMode = false;
     document.documentElement.setAttribute("data-theme", "light");
-    document.querySelector(".theme-switch-btn span").innerHTML = "dark_mode";
-    document.querySelector(".logo").src = "assets/images/icons/logo_dark.svg";
+    themeSwitchIcon.textContent = "dark_mode";
+    siteLogo.src = "assets/images/icons/logo_dark.svg";
   } else {
     isDarkMode = true;
     document.documentElement.setAttribute("data-theme", "dark");
-    document.querySelector(".theme-switch-btn span").innerHTML = "light_mode";
-    document.querySelector(".logo").src = "assets/images/icons/logo_light.svg";
+    themeSwitchIcon.textContent = "light_mode";
+    siteLogo.src = "assets/images/icons/logo_light.svg";
   }
 });
 
