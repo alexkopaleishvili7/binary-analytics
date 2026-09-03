@@ -106,9 +106,7 @@ header {
 }
 
 .theme-switch-btn:hover,
-.theme-switch-btn:focus-visible,
-.hamburger-menu-btn:hover,
-.hamburger-menu-btn:focus-visible {
+.theme-switch-btn:focus-visible {
   background-color: var(--accent-color);
 }
 

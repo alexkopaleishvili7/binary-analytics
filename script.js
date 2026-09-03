@@ -2,6 +2,9 @@
 const menuLinks = document.querySelectorAll(".hamburger-menu a");
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const hamburgerMenuBtn = document.querySelector(".hamburger-menu-btn");
+const menuBtnIcon = document.querySelector(
+  ".material-symbols-rounded.menu-btn",
+);
 
 // Preferences & Actions
 const themeSwitchBtn = document.querySelector(".theme-switch-btn");
@@ -11,7 +14,7 @@ const phoneCopyBtn = document.getElementById("phone-copy-btn");
 const emailCopyBtn = document.getElementById("email-copy-btn");
 const locationCopyBtn = document.getElementById("location-copy-btn");
 
-let isDarkMode = localStorage.getItem("isDarkMode") === "true";
+
 
 // Toast Triggers
 const copyToastMsg = document.querySelector(".toast-copy");
@@ -57,6 +60,7 @@ document.addEventListener("click", (event) => {
     hamburgerMenu.classList.remove("active");
     document.querySelector("body").classList.remove("menu-open");
   }
+  checkMenuIsOpen();
 });
 
 menuLinks.forEach((button) => {
@@ -80,15 +84,25 @@ menuLinks.forEach((button) => {
   });
 });
 
+let checkMenuIsOpen = function () {
+  const isMenuOpen = hamburgerMenu.classList.contains("active");
+
+  if (isMenuOpen) {
+    menuBtnIcon.innerHTML = "close";
+  } else {
+    menuBtnIcon.innerHTML = "menu";
+  }
+};
+
 hamburgerMenuBtn.addEventListener("click", () => {
   hamburgerMenu.classList.toggle("active");
   document.querySelector("body").classList.toggle("menu-open");
+  checkMenuIsOpen();
 });
 
 themeSwitchBtn.addEventListener("click", () => {
   if (isDarkMode == null) {
     isDarkMode = true;
-    localStorage.setItem("isDarkMode", true);
   }
   if (isDarkMode) {
     isDarkMode = false;
@@ -103,8 +117,7 @@ themeSwitchBtn.addEventListener("click", () => {
   }
 });
 
-
 window.addEventListener("load", async () => {
-    await document.fonts.ready;
-    document.querySelector(".loader-overlay").remove();
+  await document.fonts.ready;
+  document.querySelector(".loader-overlay").remove();
 });
