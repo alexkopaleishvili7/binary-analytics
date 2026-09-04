@@ -84,6 +84,17 @@ header {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.changing {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.material-symbols-rounded {
+  transition:
+    transform 150ms ease,
+    opacity 150ms ease;
+}
+
 .theme-switch-btn,
 .hamburger-menu-btn {
   display: flex;

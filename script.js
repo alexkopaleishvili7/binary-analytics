@@ -42,15 +42,27 @@ copyToastCloseBtn.addEventListener("click", () => {
 phoneCopyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText("+995577663355");
   copyToast();
+  animateIconChange(phoneCopyBtn, "check");
+  setTimeout(() => {
+    animateIconChange(phoneCopyBtn, "content_copy");
+  }, 1000);
 });
 
 emailCopyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText("binaryanalytics@gmail.com");
   copyToast();
+  animateIconChange(emailCopyBtn, "check");
+  setTimeout(() => {
+    animateIconChange(emailCopyBtn, "content_copy");
+  }, 1000);
 });
 locationCopyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText("Georgia, Tbilisi, N7");
   copyToast();
+  animateIconChange(locationCopyBtn, "check");
+  setTimeout(() => {
+    animateIconChange(locationCopyBtn, "content_copy");
+  }, 1000);
 });
 
 // legal updater
@@ -88,13 +100,24 @@ menuLinks.forEach((button) => {
   });
 });
 
+function animateIconChange(icon, iconName) {
+  if (iconName != icon.textContent) {
+    icon.classList.add("changing");
+
+    setTimeout(() => {
+      icon.textContent = iconName;
+      icon.classList.remove("changing");
+    }, 150);
+  }
+}
+
 function checkMenuIsOpen() {
   const isMenuOpen = hamburgerMenu.classList.contains("active");
 
   if (isMenuOpen) {
-    menuBtnIcon.textContent = "close";
+    animateIconChange(menuBtnIcon, "close");
   } else {
-    menuBtnIcon.textContent = "menu";
+    animateIconChange(menuBtnIcon, "menu");
   }
 }
 
@@ -108,12 +131,12 @@ themeSwitchBtn.addEventListener("click", () => {
   if (isDarkMode) {
     isDarkMode = false;
     document.documentElement.setAttribute("data-theme", "light");
-    themeSwitchIcon.textContent = "dark_mode";
+    animateIconChange(themeSwitchIcon, "dark_mode");
     siteLogo.src = "assets/images/icons/logo_dark.svg";
   } else {
     isDarkMode = true;
     document.documentElement.setAttribute("data-theme", "dark");
-    themeSwitchIcon.textContent = "light_mode";
+    animateIconChange(themeSwitchIcon, "light_mode");
     siteLogo.src = "assets/images/icons/logo_light.svg";
   }
 });
