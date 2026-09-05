@@ -26,6 +26,7 @@ const documentBody = document.body;
 
 let hideTimeout;
 
+//functions
 function copyToast() {
   copyToastMsg.classList.add("shown");
   clearTimeout(hideTimeout);
@@ -55,41 +56,32 @@ function checkMenuIsOpen() {
   }
 }
 
+function copyToClipboardWithFeedback(btn, clipboardText) {
+  navigator.clipboard.writeText(clipboardText);
+  copyToast();
+  animateIconChange(btn, "check");
+  setTimeout(() => {
+    animateIconChange(btn, "content_copy");
+  }, 1000);
+}
+
+//copy buttons
 copyToastCloseBtn.addEventListener("click", () => {
   copyToastMsg.classList.remove("shown");
   clearTimeout(hideTimeout);
 });
 
 phoneCopyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText("+995577663355");
-  copyToast();
-  animateIconChange(phoneCopyBtn, "check");
-  setTimeout(() => {
-    animateIconChange(phoneCopyBtn, "content_copy");
-  }, 1000);
+  copyToClipboardWithFeedback(phoneCopyBtn, "+995577663355");
 });
 
 emailCopyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText("binaryanalytics@gmail.com");
-  copyToast();
-  animateIconChange(emailCopyBtn, "check");
-  setTimeout(() => {
-    animateIconChange(emailCopyBtn, "content_copy");
-  }, 1000);
+  copyToClipboardWithFeedback(emailCopyBtn, "binaryanalytics@gmail.com");
 });
 
 locationCopyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText("Georgia, Tbilisi, N7");
-  copyToast();
-  animateIconChange(locationCopyBtn, "check");
-  setTimeout(() => {
-    animateIconChange(locationCopyBtn, "content_copy");
-  }, 1000);
+  copyToClipboardWithFeedback(locationCopyBtn, "Georgia, Tbilisi, N7");
 });
-
-
-
-
 
 // legal updater
 document.querySelector("#copyright-year").textContent =
@@ -110,7 +102,7 @@ menuLinks.forEach((button) => {
   icon.classList.add("material-symbols-rounded");
   icon.textContent = "chevron_right";
   icon.style.display = "none";
-  icon.style.fontSize = "50px"
+  icon.style.fontSize = "50px";
   button.appendChild(icon);
 
   const showIcon = () => (icon.style.display = "block");
@@ -126,7 +118,6 @@ menuLinks.forEach((button) => {
     documentBody.classList.remove("menu-open");
   });
 });
-
 
 hamburgerMenuBtn.addEventListener("click", () => {
   hamburgerMenu.classList.toggle("active");
