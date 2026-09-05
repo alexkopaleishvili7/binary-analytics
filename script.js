@@ -34,6 +34,27 @@ function copyToast() {
   }, 2500);
 }
 
+function animateIconChange(icon, iconName) {
+  if (iconName != icon.textContent) {
+    icon.classList.add("changing");
+
+    setTimeout(() => {
+      icon.textContent = iconName;
+      icon.classList.remove("changing");
+    }, 150);
+  }
+}
+
+function checkMenuIsOpen() {
+  const isMenuOpen = hamburgerMenu.classList.contains("active");
+
+  if (isMenuOpen) {
+    animateIconChange(menuBtnIcon, "close");
+  } else {
+    animateIconChange(menuBtnIcon, "menu");
+  }
+}
+
 copyToastCloseBtn.addEventListener("click", () => {
   copyToastMsg.classList.remove("shown");
   clearTimeout(hideTimeout);
@@ -56,6 +77,7 @@ emailCopyBtn.addEventListener("click", () => {
     animateIconChange(emailCopyBtn, "content_copy");
   }, 1000);
 });
+
 locationCopyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText("Georgia, Tbilisi, N7");
   copyToast();
@@ -64,6 +86,10 @@ locationCopyBtn.addEventListener("click", () => {
     animateIconChange(locationCopyBtn, "content_copy");
   }, 1000);
 });
+
+
+
+
 
 // legal updater
 document.querySelector("#copyright-year").textContent =
@@ -84,6 +110,7 @@ menuLinks.forEach((button) => {
   icon.classList.add("material-symbols-rounded");
   icon.textContent = "chevron_right";
   icon.style.display = "none";
+  icon.style.fontSize = "50px"
   button.appendChild(icon);
 
   const showIcon = () => (icon.style.display = "block");
@@ -100,26 +127,6 @@ menuLinks.forEach((button) => {
   });
 });
 
-function animateIconChange(icon, iconName) {
-  if (iconName != icon.textContent) {
-    icon.classList.add("changing");
-
-    setTimeout(() => {
-      icon.textContent = iconName;
-      icon.classList.remove("changing");
-    }, 150);
-  }
-}
-
-function checkMenuIsOpen() {
-  const isMenuOpen = hamburgerMenu.classList.contains("active");
-
-  if (isMenuOpen) {
-    animateIconChange(menuBtnIcon, "close");
-  } else {
-    animateIconChange(menuBtnIcon, "menu");
-  }
-}
 
 hamburgerMenuBtn.addEventListener("click", () => {
   hamburgerMenu.classList.toggle("active");
