@@ -82,6 +82,7 @@ header {
   justify-content: center;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition-duration: 0.2s;
 }
 
 .changing {
@@ -311,8 +312,8 @@ footer .logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allows items to drop down when space runs out */
-  gap: 0.2rem; /* Adds spacing between items when side-by-side or stacked */
+  flex-wrap: wrap; 
+  gap: 0.2rem; 
 }
 
 .contact-item {
