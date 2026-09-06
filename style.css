@@ -1,27 +1,30 @@
 /* Design tokens */
 :root {
-  --nav-color: hsl(0, 0%, 100%);
-  --body-color: hsl(0, 0%, 100%);
-  --font-color: hsl(180, 7%, 16%);
-  --secondary-font-color: hsl(180, 4%, 40%);
-  --menu-color: hsl(180, 10%, 98%);
-  --accent-color: hsl(164, 70%, 38%);
-  --footer-color: hsl(180, 7%, 16%);
-  --divider-color: hsl(180, 6%, 90%);
-  --footer-title-color: hsl(180, 6%, 90%);
+  --nav-color: hsl(164, 20%, 99%);
+  --body-color: hsl(164, 14%, 96%);
+  --font-color: hsl(164, 12%, 15%);
+  --secondary-font-color: hsl(164, 8%, 40%);
+  --menu-color: hsl(164, 18%, 97%);
+  --accent-color: hsl(164, 70%, 38%); /* unchanged */
+  --footer-color: hsl(164, 10%, 14%);
+  --divider-color: hsl(164, 10%, 88%);
+  --footer-title-color: hsl(164, 8%, 90%);
+  --loader-border-color: hsl(164, 12%, 88%);
   --font-primary: "Stack Sans Headline", sans-serif;
   --z-menu: 10;
   --z-header: 20;
   --z-toast: 30;
   --z-loader: 40;
 }
+
 [data-theme="dark"] {
-  --nav-color: hsl(180, 8%, 15%);
-  --body-color: hsl(180, 8%, 11%);
-  --font-color: hsl(180, 10%, 96%);
-  --secondary-font-color: hsl(180, 5%, 70%);
-  --menu-color: hsl(180, 8%, 16%);
-  --divider-color: hsl(180, 6%, 22%);
+  --nav-color: hsl(164, 10%, 15%);
+  --body-color: hsl(164, 10%, 11%);
+  --font-color: hsl(164, 10%, 96%);
+  --secondary-font-color: hsl(164, 8%, 70%);
+  --menu-color: hsl(164, 10%, 17%);
+  --divider-color: hsl(164, 8%, 23%);
+  --loader-border-color: hsl(164, 8%, 24%);
 }
 
 .material-symbols-rounded {
@@ -53,15 +56,17 @@ html {
   width: 70px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 8px solid lightblue;
+  border: 8px solid var(--loader-border-color);
   border-right-color: var(--accent-color);
   animation: l2 1s infinite linear;
 }
+
 @keyframes l2 {
   to {
     transform: rotate(1turn);
   }
 }
+
 .loader-overlay {
   width: 100%;
   height: 100%;
@@ -70,7 +75,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: inherit;
 }
 
 /* header */
@@ -313,8 +318,8 @@ footer .logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; 
-  gap: 0.2rem; 
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .contact-item {
