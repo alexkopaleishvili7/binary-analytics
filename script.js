@@ -143,3 +143,10 @@ window.addEventListener("load", async () => {
   await document.fonts.ready;
   document.querySelector(".loader-overlay").remove();
 });
+
+document.querySelector("back-to-the-top-btn").addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
