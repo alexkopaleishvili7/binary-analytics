@@ -26,7 +26,7 @@ const documentBody = document.body;
 
 let hideTimeout;
 
-//functions
+// Functions
 function copyToast() {
   copyToastMsg.classList.add("shown");
   clearTimeout(hideTimeout);
@@ -83,10 +83,11 @@ locationCopyBtn.addEventListener("click", () => {
   copyToClipboardWithFeedback(locationCopyBtn, "Georgia, Tbilisi, N7");
 });
 
-// legal updater
+// Legal updater
 document.querySelector("#copyright-year").textContent =
   new Date().getFullYear();
 
+// Hamburger Menu
 document.addEventListener("click", (event) => {
   const clickedOutsideMenu = !hamburgerMenu.contains(event.target);
   const clickedOutsideBtn = !hamburgerMenuBtn.contains(event.target);
@@ -125,6 +126,7 @@ hamburgerMenuBtn.addEventListener("click", () => {
   checkMenuIsOpen();
 });
 
+//Theme switcher
 themeSwitchBtn.addEventListener("click", () => {
   if (isDarkMode) {
     isDarkMode = false;
@@ -139,11 +141,13 @@ themeSwitchBtn.addEventListener("click", () => {
   }
 });
 
+// Loader
 window.addEventListener("load", async () => {
   await document.fonts.ready;
   document.querySelector(".loader-overlay").remove();
 });
 
+// Back to top button
 document.querySelector("back-to-the-top-btn").addEventListener("click", () => {
   window.scrollTo({
     top: 0,
